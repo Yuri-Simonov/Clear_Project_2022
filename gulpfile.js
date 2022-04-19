@@ -13,7 +13,7 @@ import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 import { img } from "./gulp/tasks/img.js";
 import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
-import { svgSprive } from "./gulp/tasks/svgSprive.js";
+// import { svgSprive } from "./gulp/tasks/svgSprive.js";
 
 // Передаем значения в глобальную переменную
 global.app = {
@@ -34,7 +34,7 @@ function watcher() {
 }
 
 // Вынос задачи на создание svg-спрайтов. Команда для запуска задачи: npm run svgSprive
-export { svgSprive }
+// export { svgSprive }
 
 // Последовательная обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);

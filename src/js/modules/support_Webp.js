@@ -1,5 +1,6 @@
-export function isWebp() {
+function isWebp() {
 	// Проверка поддержки webp
+	console.log(2);
 	function testWebP(callback) {
 		let webP = new Image();
 		webP.onload = webP.onerror = function () {
@@ -13,3 +14,4 @@ export function isWebp() {
 		document.documentElement.classList.add(className);
 	});
 }
+isWebp();
