@@ -63,3 +63,7 @@ body {
 	line-height: $font_line-height_common;
 	color: $font_color_common;
 }
+
+main {
+	flex-grow: 1;
+}
