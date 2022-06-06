@@ -1,6 +1,5 @@
 // Первая буква предложения - заглавная
 const noveltyItems = document.querySelectorAll(".novelties__item-about p");
-const horizontalItems = document.querySelectorAll(".horizontal__info-text");
 
 function firstLetter(iterItem) {
 	iterItem &&
@@ -30,4 +29,40 @@ function firstLetter(iterItem) {
 		});
 }
 firstLetter(noveltyItems);
-firstLetter(horizontalItems);
+
+// Учет регистра букв, задаваемых через админку
+let regLetter = /[A-Za-zа-яёА-ЯЁ]+/;
+function addLetterToUpperCase(parentItem) {
+	if (typeof parentItem === "string") {
+		let itemCharacterArray = parentItem.split("");
+		itemCharacterArray.forEach((character, i) => {
+			if (
+				character === character.toUpperCase() &&
+				regLetter.test(character)
+			) {
+				itemCharacterArray[
+					i
+				] = `<span class="span-big">${character}</span>`;
+			}
+		});
+		parentItem = itemCharacterArray.join("");
+		return parentItem;
+	} else {
+		parentItem &&
+			parentItem.forEach((item) => {
+				let itemCharacterArray = item.textContent.split("");
+				itemCharacterArray.forEach((character, i) => {
+					if (
+						character === character.toUpperCase() &&
+						regLetter.test(character)
+					) {
+						itemCharacterArray[
+							i
+						] = `<span class="span-big">${character}</span>`;
+					}
+				});
+				item.innerHTML = itemCharacterArray.join("");
+			});
+	}
+}
+addLetterToUpperCase(noveltyItems)
