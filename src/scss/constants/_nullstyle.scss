@@ -1,9 +1,11 @@
-/*Обнуление*/
 * {
 	padding: 0;
 	margin: 0;
 	border: 0;
+	-webkit-tap-highlight-color: transparent;
+	word-break: break-word;
 }
+
 *,
 *:before,
 *:after {
@@ -11,20 +13,17 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-:focus,
-:active {
+
+*:focus,
+*:active {
 	outline: none;
 }
+
 a:focus,
 a:active {
 	outline: none;
 }
-nav,
-footer,
-header,
-aside {
-	display: block;
-}
+
 html,
 body {
 	height: 100%;
@@ -36,34 +35,69 @@ body {
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
+
+body {
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
 input,
 button,
-textarea {
-	font-family: inherit;
+textarea,
+select {
+	font: inherit;
 }
+
 input::-ms-clear {
 	display: none;
 }
+
+input,
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
 button {
 	cursor: pointer;
+	background-color: inherit;
 }
+
 button::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
+
+textarea {
+	resize: none;
+}
+
 a,
 a:visited {
 	text-decoration: none;
 }
+
 a:hover {
 	text-decoration: none;
 }
+
 ul li {
 	list-style: none;
 }
+
 img {
-	vertical-align: top;
+	max-width: 100%;
+	display: block;
 }
+
 h1,
 h2,
 h3,
@@ -72,44 +106,14 @@ h5,
 h6 {
 	font-size: inherit;
 	font-weight: 400;
-}
-/*--------------------*/
-
-// свои нароботки =========================================================
-body {
-	min-width: 320px;
-	min-height: 320px;
+	margin: 0;
 }
 
-* {
-	-webkit-tap-highlight-color: transparent;
-	word-break: break-word;
-}
-input,
-select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-button {
-	background-color: inherit;
-}
-
-* {
-	// стилизация скролла для Firefox
-	scrollbar-color: $black $white; /* «цвет ползунка» «цвет полосы скроллбара» */
-	scrollbar-width: thin;
-	// стилизация скролла для Chrome
-	&::-webkit-scrollbar {
-		// это фон самого скроллбара
-		background-color: $white;
-		border-radius: 5px;
-		width: 5px;
-		height: 5px;
-	}
-	&::-webkit-scrollbar-thumb {
-		// индикатор прокрутки, перетаскиваемый элемент.
-		background-color: $black;
-		border-radius: 5px;
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }

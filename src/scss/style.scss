@@ -3,11 +3,11 @@
 // Шрифты
 // @import "fonts";
 
-// Обнуляющие стили
-@import "constants/_nullstyle";
-
 // Переменные
 @import "constants/_vars";
+
+// Обнуляющие стили
+@import "constants/_nullstyle";
 
 // Миксины
 @import "constants/_mixins";
@@ -22,5 +22,16 @@
 @import "constants/_footer";
 
 // Страницы ====================================================
+
+// Some
+@import "pages/some_pages";
+
 // Повторяющиеся блоки =========================================
+
+// Some
+@import "blocks/some_block";
+
 // Модалки =====================================================
+
+// Some
+@import "modals/some_modal";

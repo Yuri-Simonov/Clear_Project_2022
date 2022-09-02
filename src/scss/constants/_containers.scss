@@ -13,7 +13,7 @@ $paddings_outer_container: 0 15px;
 $paddings_inner_container: 0 15px;
 
 // Основной шрифт
-$font_family_common: "Courier New", Courier, monospace;
+$font_family_common: "Arial", sans-serif;
 
 // Основной размер шрифта
 $font_size_common: 16px;
@@ -26,6 +26,15 @@ $font_color_common: #000000;
 
 //============================================================
 
+body {
+	font-family: $font_family_common;
+	font-size: $font_size_common;
+	line-height: $font_line-height_common;
+	color: $font_color_common;
+	min-width: 319.8px;
+	min-height: 319.8px;
+}
+
 // Общая обертка
 .wrapper {
 	width: 100%;
@@ -33,6 +42,10 @@ $font_color_common: #000000;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
 }
 
 // Внешний контейнер
@@ -57,13 +70,31 @@ $font_color_common: #000000;
 	padding: $paddings_inner_container;
 }
 
-body {
-	font-family: $font_family_common;
-	font-size: $font_size_common;
-	line-height: $font_line-height_common;
-	color: $font_color_common;
+// Отключение скролла страницы при открытом бургере
+.lock {
+	@media (max-width: 768px) {
+		overflow: hidden;
+	}
 }
 
-main {
-	flex-grow: 1;
+// Стилизация скролла у всех элементов на сайте
+* {
+	// стилизация скролла для Firefox
+	scrollbar-color: $black $white; /* «цвет ползунка» «цвет полосы скроллбара» */
+	scrollbar-width: thin;
+	// стилизация скролла для Chrome
+	&::-webkit-scrollbar {
+		// это фон самого скроллбара
+		background-color: $white;
+		border-radius: 5px;
+		// ширина вертикального скроллбара
+		width: 5px;
+		// ширина горизонтального скроллбара
+		height: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		// индикатор прокрутки, перетаскиваемый элемент.
+		background-color: $black;
+		border-radius: 5px;
+	}
 }
