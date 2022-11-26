@@ -15,10 +15,7 @@
 }
 
 *:focus,
-*:active {
-	outline: none;
-}
-
+*:active,
 a:focus,
 a:active {
 	outline: none;
@@ -34,10 +31,10 @@ body {
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
 }
 
 body {
-	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 }
 
@@ -81,10 +78,7 @@ textarea {
 }
 
 a,
-a:visited {
-	text-decoration: none;
-}
-
+a:visited,
 a:hover {
 	text-decoration: none;
 }
@@ -107,13 +101,4 @@ h6 {
 	font-size: inherit;
 	font-weight: 400;
 	margin: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	* {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
 }
